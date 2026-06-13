@@ -2,6 +2,7 @@ package com.github.igu_7z.gerenciador_tarefas.controllers;
 
 import com.github.igu_7z.gerenciador_tarefas.models.Task;
 import com.github.igu_7z.gerenciador_tarefas.repositories.TaskRepository;
+import org.hibernate.sql.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,5 +29,10 @@ public class TaskController {
     @GetMapping("{/id}")
     public Optional<Task> buscarPorId(@PathVariable Long id){
         return taskRepository.findById(id);
+    }
+
+    @DeleteMapping("{/id}")
+    public void deletar(@PathVariable Long id){
+        taskRepository.deleteById(id);
     }
 }
