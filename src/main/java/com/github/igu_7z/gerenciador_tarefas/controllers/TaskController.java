@@ -26,17 +26,17 @@ public class TaskController {
         return taskRepository.findAll();
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public Optional<Task> buscarPorId(@PathVariable Long id) {
         return taskRepository.findById(id);
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         taskRepository.deleteById(id);
     }
 
-    @PutMapping("{/id}")
+    @PutMapping("/{id}")
     public Task atualizar(@PathVariable Long id, @RequestBody Task taskAtualizada) {
         Optional<Task> taskOptional = taskRepository.findById(id);
 
